@@ -2,7 +2,7 @@
 
 A real-time chat in Web.
 
-Using Webcodes Api Audio and Video Encode/Decode.
+Using Webcodes Api processing Audio and Video Encode/Decode.
 
 Using Webtransport to transmits Protocol Buffers data packets.
 
