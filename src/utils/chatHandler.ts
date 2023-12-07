@@ -69,17 +69,16 @@ class chatHandler {
           ElMessage.error("Connection lost, Reconnect...")
           setTimeout(() => {
             window.location.reload()
-            // this.connection(recvDatagramFn, recvFn, streamDone)
           }, 5000)
         })
     } catch (e) {
       console.info("reconnection error :", e)
       ElMessage.error({
-        message: "Your browser does not support Webtransport.",
+        message: "Does not support Webtransport.",
         duration: 10000,
       })
       ElMessage.error({
-        message: "请使用Chrome/Edge/Chromium",
+        message: "Webtransport only support Chrome/Edge/Chromium",
         duration: 10000,
       })
     }
@@ -268,14 +267,6 @@ class chatHandler {
             initVideoEncoder()
             const videoTransformer = new TransformStream({
               transform: (frame, controller) => {
-                // if (!videoEncoder) {
-                //   // videoCfg.height = frame.codedHeight || videoConfig.height
-                //   // videoCfg.width = frame.codedWidth || videoConfig.width
-                //   initVideoEncoder()
-                //   sendFrames = 0
-                //   console.info(frame)
-                //   console.info(videoCfg)
-                // }
                 if (videoEncoder.encodeQueueSize > 15) {
                   frame.close()
                 } else {

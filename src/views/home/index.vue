@@ -39,7 +39,7 @@
           >Min: {{ delay.min }}ms</el-text
         >
         <span v-if="isMuted" style="display: flex; align-items: center"
-          >已静音:<img :src="muteIcon" @click="playback" height="30" style="margin-right: 15px; cursor: pointer"
+          >Muted:<img :src="muteIcon" @click="playback" height="30" style="margin-right: 15px; cursor: pointer"
         /></span>
         <el-popover :width="300" trigger="click">
           <template #reference>
@@ -218,10 +218,10 @@ const playback = () => {
   audio.value.playback()
 }
 
-const updateState = (val) => {
+const updateState = (val: boolean) => {
   isMuted.value = val
   if (isMuted.value) {
-    ElMessage.warning("你已静音，请点击解除")
+    ElMessage.warning("Now muted, please click to unmute")
   }
 }
 
