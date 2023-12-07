@@ -576,18 +576,3 @@ export interface userInfo {
   username: string
   speak: boolean
 }
-
-export const urls = [
-  "https://nl.quiconline.ink",
-  "https://chat.quiconline.one",
-  "https://hk.quiconline.one",
-  "https://1880881.xyz",
-  "https://la.quiconline.ink",
-  "https://la.1880881.xyz",
-  "https://hk.quiconline.ink",
-  "https://sg.1880881.xyz",
-  "https://vmtransport.tk",
-  "https://de.quiconline.one",
-  "https://quiconline.one",
-  "https://quiccloud.gq",
-]

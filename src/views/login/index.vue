@@ -1,9 +1,7 @@
 <template>
   <div class="login-container">
     <div class="form-container">
-      <el-select v-model="url" class="m-2" style="margin-bottom: 20px">
-        <el-option v-for="item in urls" :key="item" :label="item" :value="item" />
-      </el-select>
+      <el-input v-model="url" placeholder="server url" style="margin-bottom: 20px" />
       <el-form ref="formRef" :model="loginForm" :rules="rules" size="large">
         <el-form-item prop="roomId">
           <el-input v-model="loginForm.roomId" maxlength="6" placeholder="Please input room id" />
@@ -26,7 +24,6 @@ import { reactive, ref } from "vue"
 import { FormInstance, FormRules } from "element-plus"
 import { useThrottleFn } from "@vueuse/core"
 import { session } from "@/utils/storage"
-import { urls } from "@/utils/chatHandler"
 
 const router = useRouter()
 
