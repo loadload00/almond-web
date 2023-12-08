@@ -28,7 +28,6 @@
         style="position: absolute; pointer-events: none; height: 500px; width: 100%"
       />
       <div class="options">
-        <el-button @click="test">Test</el-button>
         <el-text class="mx-1" size="small" type="danger" style="margin: 0 15px" v-show="!!delay.time"
           >Max: {{ delay.max }}ms</el-text
         >
@@ -182,15 +181,6 @@ const isMuted = ref(true)
 const showCamCenter = computed(() => {
   return !screenLsit.value.length
 })
-
-const test = async () => {
-  console.info(audio.value.getState())
-  const buf = new Uint8Array([1, 1, 1, 1])
-  const view = new DataView(buf.buffer)
-  const values = view.getInt32(0, true)
-  console.info("get", values)
-  console.info(buf)
-}
 
 const getDelay = () => {
   delay.value.interval = window.setInterval(() => {
@@ -471,6 +461,7 @@ const recvStream = (stream: ReadableStream) => {
       loadCacheFrame(el)
     }
     wait = false
+    danmakuRef.value.resize()
   }
   function loadCacheFrame(palyer: ChildCtx | null) {
     if (!palyer) {
