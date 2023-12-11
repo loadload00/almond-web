@@ -21,7 +21,7 @@
 import { useRouter } from "vue-router"
 import { ILoginForm } from "@/entity/type"
 import { reactive, ref } from "vue"
-import { FormInstance, FormRules } from "element-plus"
+import { FormInstance, FormRules, ElMessage } from 'element-plus';
 import { useThrottleFn } from "@vueuse/core"
 import { session } from "@/utils/storage"
 
@@ -39,6 +39,10 @@ const rules = reactive<FormRules<ILoginForm>>({
 })
 
 const onSubmit = useThrottleFn(async () => {
+  if (document.location.protocol === "http:") {
+    ElMessage.error("please visit with https")
+    return
+  }
   formRef.value?.validate((valid) => {
     if (valid) {
       session.set("roomId", loginForm.roomId)

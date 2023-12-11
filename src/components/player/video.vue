@@ -96,7 +96,7 @@ const initPlayer = function () {
     if (frame) {
       let timeUntilNextFrame = calculateTimeUntilNextFrame(frame.timestamp)
       if (direct.value) {
-        timeUntilNextFrame = Math.min(timeUntilNextFrame, 50)
+        timeUntilNextFrame = Math.min(timeUntilNextFrame, 60)
       } else {
         timeUntilNextFrame = Math.min(timeUntilNextFrame, 250)
       }
