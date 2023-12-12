@@ -8,7 +8,7 @@
   </div>
 </template>
 <script setup lang="ts">
-import { codec } from "./codes"
+import { codec, CamCodec } from "./codes"
 import { onMounted, ref, toRefs } from "vue"
 import { ElMessage } from "element-plus"
 import { videoInfo } from "@/utils/chatHandler"
@@ -119,7 +119,11 @@ const initPlayer = function () {
       console.error("video Decoder decode error:", e)
     },
   })
-  videoDecoder.configure({ codec: codec })
+  if (playInfo.value.kind) {
+    videoDecoder.configure({ codec: codec })
+  } else {
+    videoDecoder.configure({ codec: CamCodec })
+  }
   init.value = false
   let processedStream = new MediaStream()
   processedStream.addTrack(videoGenerator)

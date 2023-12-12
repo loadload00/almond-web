@@ -1,5 +1,6 @@
 // screen and camera video codec
-export const codec = "vp09.00.10.08"
+export const codec = "av01.0.12M.08"
+export const CamCodec = "vp09.00.41.08"
 
 export const audioConfig = {
   channelCount: 2,
@@ -21,7 +22,7 @@ export const screenConstraints = {
 }
 // camera video config
 export const videoConfig = {
-  codec: codec,
+  codec: CamCodec,
   width: 720,
   height: 720,
   bitrate: 3e6,

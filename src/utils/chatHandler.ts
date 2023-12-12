@@ -360,7 +360,7 @@ class chatHandler {
         ElMessage.error(`${msg?.toString()}`)
       })
       .catch((e) => {
-        ElMessage.error(`共享失败: ${e}`)
+        ElMessage.error(`Share Filed: ${e}`)
       })
   }
   handleFrameEncoded(writable: WritableStreamDefaultWriter | null, chunk: EncodedVideoChunk, type: number, id: string) {
@@ -458,7 +458,6 @@ class chatHandler {
             while (true) {
               const index = buf.indexOf(1)
               if (index === -1) {
-                console.log("header is null")
                 break
               }
               const last = index + 3
@@ -466,17 +465,12 @@ class chatHandler {
                 const piece = buf.slice(index)
                 if (this.checkSplit(piece)) {
                   recvBuffer = piece
-                  console.info("got start", piece.slice(0, 16))
                   break
-                } else {
-                  console.log("wrong start", index, piece.slice(0, 16))
                 }
               }
               if (last + 12 < buf.length) {
                 buf = buf.slice(last)
-                console.info("retry find")
               } else {
-                console.log("find to end")
                 break
               }
             }
