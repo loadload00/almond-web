@@ -222,6 +222,7 @@ class chatHandler {
         },
       )
       .catch((e) => {
+        local(null, null)
         ElMessage.error(`Open Mic Failed: ${e}`)
       })
   }
@@ -289,6 +290,7 @@ class chatHandler {
         },
       )
       .catch((e) => {
+        local(null, null)
         ElMessage.error(`Open Camera Failed: ${e}`)
       })
   }
@@ -360,6 +362,7 @@ class chatHandler {
         ElMessage.error(`${msg?.toString()}`)
       })
       .catch((e) => {
+        local(null, null)
         ElMessage.error(`Share Filed: ${e}`)
       })
   }
