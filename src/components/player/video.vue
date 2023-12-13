@@ -116,7 +116,18 @@ const initPlayer = function () {
     },
     error: (e) => {
       playStart.value = false
+      init.value = true
       console.error("video Decoder decode error:", e)
+      if (e.toString().includes("ambiguous codec")) {
+        ElMessage.error({
+          message: `Your browser does not support ${codec}, Please try using chrome/chromium.`,
+          duration: 10000,
+        })
+        ElMessage.error({
+          message: `Unable to decode from user '${playInfo.value.username}' video, browser not support`,
+          duration: 0,
+        })
+      }
     },
   })
   if (playInfo.value.kind) {
