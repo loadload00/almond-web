@@ -3,7 +3,7 @@ export const codec = "av01.0.12M.08"
 export const CamCodec = "vp09.00.41.08"
 
 export const audioConfig = {
-  channelCount: 2,
+  channelCount: 1,
   sampleRate: 48000,
 }
 export const screenConfig = {
@@ -37,7 +37,7 @@ export const camConstraints = {
 //audio codec
 export const audioConstraints = {
   codec: "opus",
-  numberOfChannels: 2,
+  numberOfChannels: 1,
   sampleRate: 48000,
   bitrate: 512e3,
   // deviceId:''
